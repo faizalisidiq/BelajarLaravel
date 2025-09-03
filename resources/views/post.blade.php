@@ -5,7 +5,7 @@
         <h2 class="mb-1 text-4xl tracking-tighter font-bold text-white">{{ $post['title'] }}</h2>
 
         <div class="text-white">
-            <a href="#">{{ $post['author'] }}</a> | 02 September 2025
+            <a href="#">{{ $post['author'] }}</a> | {{ $post->created_at->diffForHumans() }}
         </div>
 
         <p class="text-white my-4 font-light">{{ $post['body'] }}</p>
@@ -13,3 +13,4 @@
     </article>
 
 </x-layout>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quia nemo molestias illum quidem tenetur error architecto rerum odit sapiente officia ex laboriosam, reiciendis debitis in. Provident, magnam veritatis. Itaque.
