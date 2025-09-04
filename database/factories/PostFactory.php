@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,9 +19,9 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'slug' => Str::slug(fake()->sentence()),
             'title' => fake()->sentence(),
-            'author' => fake()->name(),
+            'user_id' => User::factory(),
+            'slug' => Str::slug(fake()->sentence()),
             'body' => fake()->text()
         ];
     }

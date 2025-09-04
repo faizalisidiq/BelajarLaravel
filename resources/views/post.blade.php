@@ -5,7 +5,7 @@
         <h2 class="mb-1 text-4xl tracking-tighter font-bold text-white">{{ $post['title'] }}</h2>
 
         <div class="text-white">
-            <a href="#">{{ $post['author'] }}</a> | {{ $post->created_at->diffForHumans() }}
+            <a href="#">{{ $post->user->name }}</a> | {{ $post->created_at->diffForHumans() }}
         </div>
 
         <p class="text-white my-4 font-light">{{ $post['body'] }}</p>
