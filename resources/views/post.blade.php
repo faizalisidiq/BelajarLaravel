@@ -2,14 +2,20 @@
     <x-slot:title>{{ $title }}</x-slot:title>
 
     <article class="py-8 max-w-screen-md">
-        <h2 class="mb-1 text-4xl tracking-tighter font-bold text-white">{{ $post['title'] }}</h2>
+        <h2 class="mb-1 text-4xl tracking-tighter font-bold">{{ $post['title'] }}</h2>
 
-        <div class="text-white">
+        <div class="">
             <a href="#">{{ $post->user->name }}</a> | {{ $post->created_at->diffForHumans() }}
         </div>
 
-        <p class="text-white my-4 font-light">{{ $post['body'] }}</p>
+        <p class="my-4 font-light">{{ $post['body'] }}</p>
+        @if (str_contains(url()->previous(), '/users/'))
+        <a href="/users/{{ $post->user->username }}" class="font-medium text-blue-500 hover:underline">&laquo; Kembali Ke Blog </a>
+        @elseif (str_contains(url()->previous(), '/categories/'))
+        <a href="/categories/{{ $post->category->slug }}" class="font-medium text-blue-500 hover:underline">&laquo; Kembali Ke Blog </a>
+        @else
         <a href="/posts" class="font-medium text-blue-500 hover:underline">&laquo; Kembali Ke Blog </a>
+        @endif
     </article>
 
 </x-layout>
